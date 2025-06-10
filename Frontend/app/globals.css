@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 358 76% 49%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 199 79% 46%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 199 79% 46%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 358 76% 49%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 358 76% 49%;
+    --chart-1: 358 76% 49%;
+    --chart-2: 199 79% 46%;
+    --chart-3: 0 0% 0%;
+    --chart-4: 358 76% 60%;
+    --chart-5: 199 79% 60%;
+    --radius: 0.75rem;
+  }
+ 
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 358 76% 49%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 199 79% 46%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 64.9%;
+    --accent: 199 79% 46%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 358 76% 49%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 14%;
+    --input: 0 0% 14%;
+    --ring: 358 76% 49%;
+    --chart-1: 358 76% 49%;
+    --chart-2: 199 79% 46%;
+    --chart-3: 0 0% 100%;
+    --chart-4: 358 76% 60%;
+    --chart-5: 199 79% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Enhanced Card Hover Effects */
+.card-hover {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Gradient Background for Header */
+.gradient-header {
+  background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--primary)/0.8));
+}
+
+/* Enhanced Table Styles */
+.enhanced-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.enhanced-table tbody tr:hover {
+  background-color: hsl(var(--muted));
+}
+
+/* Button Hover Animation */
+.button-hover {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.button-hover::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.button-hover:hover::after {
+  width: 200%;
+  height: 200%;
+}
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
